@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				xmlns:view="com.apress.flexjava.usermanager.view.*"
+				layout="horizontal"
+				creationComplete="init()"
+				horizontalAlign="center"
+				verticalAlign="middle">
+
+	<mx:VBox horizontalAlign="right">
+		<mx:HBox>
+
+			<mx:FormItem label="search">
+				<view:CollectionTextInputFilter tabIndex="1"
+												collection="{usersCollectionTest}"
+												columnSearchable="{columnNameToSearch}" />
+			</mx:FormItem>
+			 <mx:RadioButtonGroup id="searchMethodGroup"  itemClick="handleSearchMethod(event)"/>
+       		 <mx:RadioButton tabEnabled="true" tabIndex="2" label="lastName" selected="true" groupName="searchMethodGroup"/>
+        	<mx:RadioButton tabEnabled="true" tabIndex="3" label="email" groupName="searchMethodGroup" />
+
+
+		</mx:HBox>
+
+
+		<view:UsersGrid dataProvider="{usersCollectionTest}" width="600" height="400" />
+	</mx:VBox>
+
+	<mx:Script>
+		<![CDATA[
+			import mx.events.ItemClickEvent;
+			import mx.collections.ArrayCollection;
+			import com.apress.flexjava.usermanager.model.User;
+
+			[Bindable]
+			public var usersCollectionTest : ArrayCollection;
+
+			[Bindable]
+			private var columnNameToSearch : String = "lastName";
+
+			public function init() : void{
+				createUsersCollectionTest();
+			}
+
+			private function createUsersCollectionTest() : void {
+				usersCollectionTest = new ArrayCollection();
+				for(var i:int = 0; i<10; i++){
+					usersCollectionTest.addItem(userFactory("commonName"+i,
+								"lastName"+i,
+								"email"+i,
+								"username"+i,
+								"password"+i)
+								);
+
+				}
+			}
+
+			private function userFactory(commonName : String,
+										lastName : String,
+										email : String,
+										username : String,
+										password : String
+										) : User {
+
+				var user : User  = new User();
+				user.commonName  = commonName;
+				user.lastName    = lastName;
+				user.email       = email;
+				user.username    = username;
+				user.password 	 = password;
+
+				return user;
+			}
+
+			private function handleSearchMethod(event:ItemClickEvent):void {
+                   columnNameToSearch = event.currentTarget.selectedValue as String;
+            }
+
+
+		]]>
+	</mx:Script>
+</mx:Application>

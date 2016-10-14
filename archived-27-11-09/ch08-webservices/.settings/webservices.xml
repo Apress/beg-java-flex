@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectRoot>
+<url value="http://www.webservicex.net/geoipservice.asmx?WSDL">
+<service name="GeoIPService">
+<port name="GeoIPServiceSoap">
+<operations>
+<operation name="GetGeoIPContext(parameters: GetGeoIPContext): GetGeoIPContextResponse"/>
+<operation name="GetGeoIP(parameters: GetGeoIP): GetGeoIPResponse"/>
+</operations>
+</port>
+</service>
+<asPackage absPath="/Users/filippodipisa/Documents/workspace/apress/WebServiceTest/src/net/webservicex" name="net.webservicex">
+<mainAsClass name="GeoIPService.as"/>
+<otherAsClass name="GetGeoIPContextResultEvent.as"/>
+<otherAsClass name="GetGeoIPContext_request.as"/>
+<otherAsClass name="BaseGeoIPService.as"/>
+<otherAsClass name="BaseGeoIPServiceSchema.as"/>
+<otherAsClass name="GetGeoIP_request.as"/>
+<otherAsClass name="GeoIP0.as"/>
+<otherAsClass name="IGeoIPService.as"/>
+<otherAsClass name="GetGeoIPResultEvent.as"/>
+<otherAsClass name="GeoIP.as"/>
+</asPackage>
+</url>
+</projectRoot>

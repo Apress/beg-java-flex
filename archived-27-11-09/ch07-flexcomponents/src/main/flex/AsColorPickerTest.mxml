@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				layout="vertical"
+				creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.ColorPicker;
+			import mx.events.ColorPickerEvent;
+			import mx.controls.Alert;
+
+			public function init() : void {
+				var myColorPicker : ColorPicker = new ColorPicker();
+				myColorPicker.showTextField = true;
+				myColorPicker.editable = true;
+				myColorPicker.addEventListener(ColorPickerEvent.CHANGE, doSomething);
+				this.addChild(myColorPicker);
+			}
+
+			public function doSomething(event : ColorPickerEvent) : void {
+				Alert.show("Your selected the color " + event.color.toString(16));
+			}
+		]]>
+	</mx:Script>
+</mx:Application>

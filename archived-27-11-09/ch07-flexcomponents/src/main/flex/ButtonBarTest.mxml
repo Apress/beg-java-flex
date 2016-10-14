@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+	<mx:ButtonBar id="myButtonbar" itemClick="doSomething(event)" direction="horizontal">
+		<mx:dataProvider>
+			<mx:String>Flex 2</mx:String>
+			<mx:String>Flex 3</mx:String>
+			<mx:String>Flex 4</mx:String>
+		</mx:dataProvider>
+	</mx:ButtonBar>
+
+	<mx:Script>
+		<![CDATA[
+			import mx.events.ItemClickEvent;
+			import mx.controls.Button;
+			import mx.controls.Alert;
+			public function doSomething(event : ItemClickEvent) : void {
+				Alert.show("You have clicked the button labeled " + event.label);
+			}
+		]]>
+	</mx:Script>
+
+</mx:Application>

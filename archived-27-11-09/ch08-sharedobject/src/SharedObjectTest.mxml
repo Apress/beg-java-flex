@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				creationComplete="init()">
+
+  <mx:Label text="{lastVisitMessage}"/>
+  <mx:Button label="Delete Shared Objed" click="deleteSharedObject()"/>
+
+  <mx:Script>
+	  <![CDATA[
+
+		  public var sharedObject:SharedObject;
+
+		  [Bindable]
+		  public var lastVisitMessage:String;
+
+		  public function init():void {
+		     sharedObject = SharedObject.getLocal("sharedObjectTest");
+		     if (sharedObject.data.lastVisitDate==null) {
+		        lastVisitMessage = "This is the first time that you use this application."
+		     } else {
+		        lastVisitMessage = "This is the " + getSharedObjet().counter + " time that you used this application. Your last visit was on  " +
+		           getSharedObjet().lastVisitDate;
+		     }
+		     setSharedObjet();
+		  }
+
+		  private function getSharedObjet():Object {
+		     return sharedObject.data;
+		  }
+
+		  private function setSharedObjet():void {
+		     sharedObject.data.lastVisitDate = new Date();
+		     sharedObject.data.counter = (getSharedObjet().counter == null)?1:getSharedObjet().counter + 1;
+		     sharedObject.flush();
+		  }
+
+		  private function deleteSharedObject():void {
+		     sharedObject.clear();
+		  }
+
+	  ]]>
+  </mx:Script>
+</mx:Application>
+

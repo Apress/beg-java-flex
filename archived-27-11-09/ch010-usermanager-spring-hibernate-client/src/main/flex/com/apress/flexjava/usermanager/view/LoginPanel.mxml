@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:HBox
+	 xmlns:mx="http://www.adobe.com/2006/mxml"
+	 minWidth="400" minHeight="250"
+	 horizontalScrollPolicy="off" verticalScrollPolicy="off"
+	 horizontalAlign="center"
+	 verticalAlign="middle"
+	 >
+
+
+<mx:Spacer height="100%" width="100%"/>
+<mx:Panel
+	id="loginPanel"
+	 title="Login"
+	 width="300" height="180"
+	 horizontalScrollPolicy="off" verticalScrollPolicy="off"
+	 horizontalAlign="center"
+	 verticalAlign="middle"
+	 styleName="loginPanel"
+	 >
+		<mx:Form id="loginForm" styleName="loginForm" paddingTop="10">
+				<mx:FormItem label="Username: ">
+						<mx:TextInput id="username" enter="doLogin()"/>
+				</mx:FormItem>
+
+				<mx:FormItem label="Password: ">
+						<mx:TextInput id="password" displayAsPassword="true" enter="doLogin()"/>
+				</mx:FormItem>
+
+		</mx:Form>
+		<mx:ControlBar horizontalAlign="right">
+				<mx:Button label="Login" enabled="{ !isPending }" click="doLogin()" />
+		</mx:ControlBar>
+</mx:Panel>
+<mx:Spacer height="100%" width="100%"/>
+
+<mx:Script>
+		<![CDATA[
+			import com.apress.flexjava.usermanager.model.User;
+			import com.apress.flexjava.usermanager.events.LoginEvent;
+
+			private var isPending : Boolean = false;
+
+			public function doLogin() : void {
+					var user : User = new User();
+					user.username = username.text;
+					user.password = password.text;
+					var event : LoginEvent = new LoginEvent( user );
+					dispatchEvent(event);
+					isPending = true;
+			 }
+
+		]]>
+		</mx:Script>
+</mx:HBox>

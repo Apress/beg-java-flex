@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+
+	<mx:ColorPicker id="myColorPicker" showTextField="true" editable="true" change="doSomething(event)" />
+
+	<mx:Script>
+		<![CDATA[
+			import mx.events.ColorPickerEvent;
+			import mx.controls.Alert;
+			public function doSomething(event : ColorPickerEvent) : void {
+				Alert.show("Your selected the color " + event.color.toString(16));
+			}
+		]]>
+	</mx:Script>
+
+</mx:Application>

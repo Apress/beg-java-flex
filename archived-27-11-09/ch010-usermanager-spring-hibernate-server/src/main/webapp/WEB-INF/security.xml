@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans  xmlns:beans="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:p="http://www.springframework.org/schema/p"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+        xmlns="http://www.springframework.org/schema/security"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-2.0.1.xsd">
+
+
+
+	 <http auto-config="true" session-fixation-protection="none" >
+          <intercept-url pattern="/messagebroker/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+          <intercept-url pattern="/flex-client/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+           <intercept-url pattern="/**" access="ROLE_ADMIN,ROLE_USERS" />
+     </http>
+
+     <authentication-provider>
+     	<jdbc-user-service data-source-ref="dataSource" />
+     </authentication-provider>
+
+
+
+     <!--
+
+     <global-method-security secured-annotations="enabled" />
+
+     <authentication-provider>
+     	<ldap-user-service 	server-ref="ldapServer"
+     						user-search-filter="{uid=0}"
+     						user-search-base="ou=people"
+     						group-search-filter="member={0}"
+     						group-search-base="ou=groups"/>
+     </authentication-provider>
+
+     <ldap-server 	id="ldapServer"
+     				url="ldap://localhost:10389/dc=example,dc=com"
+     				manager-dn="uid=admin,ou=system"
+     				manager-password="123456"/>
+
+     <authentication-provider>
+     	<user-service>
+     		<user password="12345689" name="admin" authorities="ROLE_ADMIN,ROLE_USER" />
+     		<user password="79891011" name="user1" authorities="ROLE_USER" />
+     		<user password="11121314" name="user2" authorities="ROLE_USER" disabled="true" />
+     	</user-service>
+     </authentication-provider>
+
+     <authentication-provider>
+     	<user-service properties="/WEB-INF/users.properties" />
+     </authentication-provider>
+
+     <authentication-provider>
+     	<jdbc-user-service data-source-ref="dataSource"
+     						users-by-username-query="SELECT * FROM customized_users_table WHERE user_id = ?"
+     						authorities-by-username-query="SELECT * FROM customized_authorities_table WHERE user_id = ?"/>
+     </authentication-provider>
+
+
+	<bean id="customizedauthenticationFilter" class="com.apress.security.CustomizedAuthenticationFilter" >
+		<custom-filter position="AUTHENTICATION_PROCESSING_FILTER"/>
+		...
+	</bean>
+	-->
+
+
+	<!-- sso filter -->
+
+    <!-- ======================== FILTER CHAIN ======================= -->
+
+</beans:beans>

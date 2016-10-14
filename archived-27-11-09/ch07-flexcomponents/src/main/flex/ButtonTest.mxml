@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:Button id="myButton" label="Click Me!" click="doSomething(event)" />
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Button;
+			import mx.controls.Alert;
+			public function doSomething(event : Event) : void {
+				Alert.show("You have clicked the button labeled " + event.target.label);
+			}
+		]]>
+	</mx:Script>
+</mx:Application>

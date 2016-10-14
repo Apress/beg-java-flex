@@ -1,0 +1,44 @@
+/* CSS file */
+.red {
+	  borderThickness:5;
+	  borderStyle:solid;
+	  borderColor:#F60E0E;
+	  horizontalCenter:0;
+	  verticalCenter:0;
+	  horizontalAlign:center;
+	  verticalAlign:middle;
+	  paddingLeft:10;
+	  paddingRight:10;
+	  paddingBottom:10;
+	  paddingTop:10;
+}
+
+.yellow {
+	  borderThickness:5;
+	  borderStyle:solid;
+	  borderColor:#F6EE0E;
+}
+
+.blue {
+	  borderThickness:5;
+	  borderStyle:solid;
+	  borderColor:#0E14F6;
+	  horizontalAlign:center;
+	  verticalAlign:middle;
+	  paddingLeft:10;
+	  paddingRight:10;
+	  paddingBottom:10;
+	  paddingTop:10;
+}
+
+.lightBlue {
+	 borderColor:#05DBEE;
+   	 borderStyle:solid;
+   	 borderThickness:5;
+}
+
+.green {
+	 borderColor:#05EEA4;
+   	 borderStyle:solid;
+   	 borderThickness:5;
+}

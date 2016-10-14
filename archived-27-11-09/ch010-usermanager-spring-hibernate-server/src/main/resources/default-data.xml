@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <table name="users">
+    	<column>user_id</column>
+    	<column>username</column>
+    	<column>enabled</column>
+    	<column>password</column>
+    	<column>common_name</column>
+    	<column>email</column>
+    	<column>last_name</column>
+    	<row>
+    		<value description="user_id">-1</value>
+    		<value description="username">admin</value>
+    		<value description="enabled">1</value>
+    		<value description="password">admin</value>
+    		<value description="common_name">John</value>
+    		<value description="email">j.steward@apress.com</value>
+    		<value description="last_name">Steuard</value>
+    	</row>
+    	<row>
+    		<value description="user_id">-2</value>
+    		<value description="username">user</value>
+    		<value description="enabled">1</value>
+    		<value description="password">user</value>
+    		<value description="common_name">Richard</value>
+    		<value description="email">r.mal@apress.com</value>
+    		<value description="last_name">Mal</value>
+    	</row>
+    	<row>
+    		<value description="user_id">-3</value>
+    		<value description="username">user1</value>
+    		<value description="enabled">1</value>
+    		<value description="password">guest</value>
+    		<value description="common_name">Maria</value>
+    		<value description="email">m.seal@apress.com</value>
+    		<value description="last_name">Seal</value>
+    	</row>
+    	<row>
+    		<value description="user_id">-4</value>
+    		<value description="username">guest</value>
+    		<value description="enabled">1</value>
+    		<value description="password">guest</value>
+    		<value description="common_name">Roger</value>
+    		<value description="email">r.wisky@apress.com</value>
+    		<value description="last_name">Wisky</value>
+    	</row>
+    </table>
+    <table name="authorities">
+    	<column>authority_id</column>
+    	<column>user_id</column>
+    	<column>authority</column>
+    	<column>username</column>
+    	<row>
+    		<value description="authority_id">-1</value>
+    		<value description="user_id">-1</value>
+    		<value description="authority">ROLE_ADMIN</value>
+    		<value description="username">admin</value>
+    	</row>
+    	<row>
+    		<value description="authority_id">-2</value>
+    		<value description="user_id">-2</value>
+    		<value description="authority">ROLE_USERS</value>
+    		<value description="username">user</value>
+    	</row>
+    	<row>
+    		<value description="authority_id">-3</value>
+    		<value description="user_id">-3</value>
+    		<value description="authority">ROLE_USER</value>
+    		<value description="username">guest</value>
+    	</row>
+   	</table>
+</dataset>

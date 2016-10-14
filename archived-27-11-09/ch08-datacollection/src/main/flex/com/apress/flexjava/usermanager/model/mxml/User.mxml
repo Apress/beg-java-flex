@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Box xmlns:mx="http://www.adobe.com/2006/mxml">
+	<mx:Model id="userModel">
+		<user>
+			<id />
+			<username />
+			<commonName />
+			<lastName />
+			<email />
+			<password />
+		</user>
+	</mx:Model>
+</mx:Box>

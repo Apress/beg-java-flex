@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:flex="http://www.springframework.org/schema/flex"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/flex
+           http://www.springframework.org/schema/flex/spring-flex-1.0.xsd"
+           default-lazy-init="false">
+
+
+
+
+
+    <!-- Add new DAOs here -->
+
+
+
+    <!-- Add new Business here -->
+
+	<bean id="userDao" class="com.apress.usermanager.dao.hibernate.UserDaoImpl">
+    	<property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+	<bean id="userService" class="com.apress.usermanager.service.UserServiceImpl">
+    	<property name="userDao" ref="userDao" />
+    </bean>
+
+
+    
+
+
+    <!-- Add new Managers here -->
+
+    <!-- Add new mail  here -->
+   	<!--
+	    <bean id="mailSender" class="com.filippodipisa.mail.MailSenderImpl">
+		  <property name="host" value="localhost"/>
+		  <property name="from" value="dp@yourdomain.net"/>
+		</bean>
+
+		<bean id="velocityEngine"
+			class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+			<property name="velocityProperties">
+				<value>
+					resource.loader=class
+					class.resource.loader.class=org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+				</value>
+			</property>
+		</bean>
+	 -->
+
+</beans>

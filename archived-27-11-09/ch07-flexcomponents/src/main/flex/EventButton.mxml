@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+	<mx:Button id="myButton" label="click me!" click="doSomething(event)" />
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Alert;
+			private function doSomething(event : Event) : void{
+				Alert.show("The button dispatch the event of type " + event.type);
+			}
+		]]>
+	</mx:Script>
+</mx:Application>

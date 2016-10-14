@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical" xmlns:mxml="com.apress.flexandjava.components.mxml.*">
+	<mxml:ComboBoxEuropeStates  />
+	<mx:Script>
+		<![CDATA[
+			[Bindable]
+			private var dp : Array = ["dsadas","dsadasdas"];
+		]]>
+	</mx:Script>
+</mx:Application>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				layout="vertical"
+				creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Button;
+			import mx.controls.Alert;
+
+			public function init() : void {
+				var myButton : Button = new Button();
+				myButton.label = "Click Me!";
+				myButton.addEventListener(MouseEvent.CLICK,doSomething);
+				this.addChild(myButton);
+			}
+
+			public function doSomething(event : Event) : void {
+				Alert.show("The button dispatch the event of type " + event.type);
+			}
+		]]>
+	</mx:Script>
+</mx:Application>

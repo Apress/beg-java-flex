@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				xmlns:view="com.apress.flexandjava.usermanager.view.*"
+				layout="horizontal"
+				creationComplete="init()"
+				horizontalAlign="center"
+				verticalAlign="middle">
+	<mx:ViewStack id="viewStack" selectedIndex="{UserModelImpl(model).workFlowState}">
+		<mx:VBox horizontalAlign="right">
+			<mx:HBox>
+				<mx:FormItem label="search">
+					<view:CollectionTextInputFilter tabIndex="1"
+													collection="{model.usersCollection}"
+													columnSearchable="{columnNameToSearch}" />
+				</mx:FormItem>
+				 <mx:RadioButtonGroup id="searchMethodGroup"  itemClick="handleSearchMethod(event)"/>
+	       		 <mx:RadioButton tabEnabled="true" tabIndex="2" label="lastName" selected="true" groupName="searchMethodGroup"/>
+	        	<mx:RadioButton tabEnabled="true" tabIndex="3" label="email" groupName="searchMethodGroup" />
+			</mx:HBox>
+			<view:UsersGrid dataProvider="{model.usersCollection}" width="600" height="400" />
+			<mx:HBox>
+				<mx:Button label="Add User" click="{UserModelImpl(model).workFlowState = UserModelImpl.WINDOW_USER_FORM}" />
+			</mx:HBox>
+		</mx:VBox>
+		<mx:VBox>
+			<view:UserForm id="userForm" width="400" height="400" />
+			<mx:HBox>
+				<mx:Button label="Back" click="{UserModelImpl(model).workFlowState = UserModelImpl.WINDOW_LIST_USERS}" />
+				<mx:Button label="Save" click="{control.addUser(userForm.user);UserModelImpl(model).workFlowState = UserModelImpl.WINDOW_LIST_USERS}" />
+			</mx:HBox>
+		</mx:VBox>
+	</mx:ViewStack>
+	<mx:Script>
+		<![CDATA[
+			import com.apress.flexandjava.usermanager.control.UserControlImpl;
+			import com.apress.flexandjava.usermanager.control.UserControl;
+			import com.apress.flexandjava.usermanager.model.UserModel;
+			import mx.events.ItemClickEvent;
+			import mx.collections.ArrayCollection;
+			import com.apress.flexandjava.usermanager.model.User;
+			import com.apress.flexandjava.usermanager.model.UserModelImpl;
+
+			[Bindable]
+			private var columnNameToSearch : String = "lastName";
+
+			[Bindable]
+            private var model : UserModel;
+
+            [Bindable]
+            private var control : UserControl;
+
+            public function init():void{
+                 model = new UserModelImpl();
+                 control = new UserControlImpl(model);
+                 control.getUsers();
+            }
+
+			private function handleSearchMethod(event:ItemClickEvent):void {
+                   columnNameToSearch = event.currentTarget.selectedValue as String;
+            }
+		]]>
+	</mx:Script>
+</mx:Application>

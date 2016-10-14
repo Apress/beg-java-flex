@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+
+	<mx:Style source="/css/containers_example.css" />
+
+	<mx:HBox  	id="hBoxRed"
+				styleName="red"
+				width="90%"
+	  			height="90%" >
+
+			  <mx:Box id="boxYellow"
+			  		  styleName="yellow"
+					  width="40%"
+					  height="100%">
+
+			  </mx:Box>
+			  <mx:VBox id="vBoxBlue"
+			  		   styleName="blue"
+					   width="100%"
+					   height="100%"
+					   >
+			  	 <mx:Box id="boxLightBlue"
+			  	 	     styleName="lightBlue"
+			  	 		 width="100%"
+			  	 		 height="50%">
+			  	 </mx:Box>
+			  	<mx:Box id="boxGreen"
+			  			styleName="green"
+			  			width="100%"
+			  			height="50%">
+			  	 </mx:Box>
+			  </mx:VBox>
+	</mx:HBox>
+</mx:Application>

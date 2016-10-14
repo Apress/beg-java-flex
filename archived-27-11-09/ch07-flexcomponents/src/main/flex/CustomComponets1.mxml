@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:ComboBox xmlns:mx="http://www.adobe.com/2006/mxml">
+	 <mx:dataProvider>
+        <mx:String>Albania</mx:String>
+        <mx:String>Andorra</mx:String>
+        <mx:String>Armenia</mx:String>
+        <mx:String>Etcetera...</mx:String>
+    </mx:dataProvider>
+</mx:ComboBox>

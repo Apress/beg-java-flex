@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				layout="horizontal"
+				verticalAlign="middle"
+				horizontalAlign="center"
+				creationComplete="init()">
+
+	<mx:Label text="My IP is:" />
+	<mx:Label text="{ip}" />
+
+	<mx:WebService
+        id="myService"
+        wsdl="http://www.webservicex.net/geoipservice.asmx?WSDL">
+        <mx:operation name="GetGeoIPContext" resultFormat="object"
+            fault="{Alert.show(event.fault.faultString)}"
+            result="getGeoIPContextHandler(event)"/>
+    </mx:WebService>
+    <mx:Script>
+    	<![CDATA[
+    		import mx.controls.Alert;
+    		import mx.rpc.events.ResultEvent;
+
+			[Bindable]
+			private var ip : String;
+
+    		public function init() : void {
+    			myService.GetGeoIPContext.send();
+    		}
+
+    		public function getGeoIPContextHandler(event : ResultEvent) : void{
+    			ip = event.result.IP;
+    		}
+    	]]>
+    </mx:Script>
+</mx:Application>

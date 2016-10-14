@@ -1,0 +1,24 @@
+
+@author: Filippo di Pisa
+@info: filippo@dipisa.net
+
+
+Flex build path > Output folder
+
+$${workspaces}/ch08-usermanager-spring-hybernate/src/main/webapp/ch08-usermanager-spring-hybernate_client
+
+Flex Compiler > Additional compiler arguments
+
+-services "$${workspace}/ch08-usermanager-spring-hybernate/src/main/webapp/WEB-INF/flex/services-config.xml" -locale en_US
+
+Flex Server > Root  folder
+
+$${workspace}/ch08-usermanager-spring-hybernate/src/main/webapp
+
+Flex Server > Root URL
+
+http:/localhost:8080/ch08-usermanager-spring-hybernate
+
+Flex Server > Context root
+
+/ch08-usermanager-spring-hybernate

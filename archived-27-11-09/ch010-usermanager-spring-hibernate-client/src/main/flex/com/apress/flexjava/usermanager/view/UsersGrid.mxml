@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:DataGrid xmlns:mx="http://www.adobe.com/2006/mxml">
+	<mx:DataGridColumn dataField="commonName" headerText="Common Name" />
+	<mx:DataGridColumn dataField="lastName" headerText="Last Name" />
+	<mx:DataGridColumn dataField="email" headerText="Email" />
+	<mx:DataGridColumn dataField="username" headerText="Username" />
+	<mx:DataGridColumn dataField="password" headerText="Password" />
+	<mx:DataGridColumn dataField="description" headerText="Descritption" />
+</mx:DataGrid>

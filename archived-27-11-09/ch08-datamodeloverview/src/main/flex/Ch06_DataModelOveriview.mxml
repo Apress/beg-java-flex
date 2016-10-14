@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				xmlns:view="com.apress.flexjava.usermanager.view.*"
+				layout="horizontal"
+				creationComplete="init()"
+				horizontalAlign="center"
+				verticalAlign="middle">
+	<view:UsersGrid dataProvider="{usersCollectionTest}" width="600" height="400" />
+	<mx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			import com.apress.flexjava.usermanager.model.User;
+
+			[Bindable]
+			public var usersCollectionTest : ArrayCollection;
+
+			public function init() : void{
+				createUsersCollectionTest();
+			}
+
+			private function createUsersCollectionTest() : void {
+				usersCollectionTest = new ArrayCollection();
+				for(var i:int = 0; i<10; i++){
+					usersCollectionTest.addItem(userFactory("commonName"+i,
+								"lastName"+i,
+								"email"+i,
+								"username"+i,
+								"password"+i));
+
+				}
+			}
+
+			private function userFactory(commonName : String,
+										lastName : String,
+										email : String,
+										username : String,
+										password : String) : User {
+
+				var user : User  = new User();
+				user.commonName  = commonName;
+				user.lastName    = lastName;
+				user.email       = email;
+				user.username    = username;
+				user.password 	 = password;
+				return user;
+			}
+
+		]]>
+	</mx:Script>
+</mx:Application>

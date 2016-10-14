@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<service 	id="message-service-apt"
+ 			class="flex.messaging.services.MessageService">
+
+    <adapters>
+        <adapter-definition id="actionscript"
+         					class="flex.messaging.services.messaging.adapters.ActionScriptAdapter"
+         					default="true"/>
+    </adapters>
+
+    <default-channels>
+        <channel ref="channel-polling-amf"/>
+    </default-channels>
+
+    <destination id="chat-application">
+        <properties>
+            <network>
+                <session-timeout>
+                    0
+                </session-timeout>
+                <throttle-inbound policy="ERROR" max-frequency="50"/>
+                <throttle-outbound policy="REPLACE" max-frequency="500"/>
+            </network>
+            <server>
+                <max-cache-size>
+                    1000
+                </max-cache-size>
+                <message-time-to-live>
+                    0
+                </message-time-to-live>
+                <durable>
+                    true
+                </durable>
+            </server>
+        </properties>
+    </destination>
+</service>

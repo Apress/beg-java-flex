@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				layout="vertical"
+				xmlns:components="com.apress.flexandjava.components.*">
+	<mx:VBox>
+
+
+	<components:Calculator title="My Calculator Component!"
+							displayChange="{displayChangeHandler(event)}"  />
+	<mx:TextArea id="textArea" width="200" height="200" />
+
+	</mx:VBox>
+	<mx:Script>
+		<![CDATA[
+			import com.apress.flexandjava.components.Calculator;
+			import mx.controls.TextInput;
+			import mx.controls.Alert;
+
+			private function displayChangeHandler(event : Event):void{
+				textArea.text = Calculator(event.currentTarget).textInput.text;
+			}
+		]]>
+	</mx:Script>
+</mx:Application>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:myComponents="*" layout="vertical">
+	<myComponents:ButtonJoker label="click me!" buttonMoveEvent="buttonMoveHandler(event)" />
+	<mx:TextArea text="{message}" />
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.Button;
+
+			[Bindable]
+			private var message : String;
+
+			public function init() : void {
+				var myButton : ButtonJoker = new ButtonJoker();
+				myButton.label = "Click Me!";
+				myButton.addEventListener(ButtonMoveEvent.BUTTON_MOVE_EVENT,buttonMoveHandler);
+				this.addChild(myButton);
+			}
+
+			public function buttonMoveHandler(event : ButtonMoveEvent) : void {
+				message = "The button has moved to "+ event.direction;
+			}
+
+		]]>
+	</mx:Script>
+</mx:Application>

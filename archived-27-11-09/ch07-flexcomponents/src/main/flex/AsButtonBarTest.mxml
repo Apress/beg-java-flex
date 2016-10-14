@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				layout="vertical"
+				creationComplete="init()">
+
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.ButtonBar;
+			import mx.collections.ArrayCollection;
+			import mx.events.ItemClickEvent;
+			import mx.controls.Alert;
+
+			public function init() : void {
+				var dp : ArrayCollection = new ArrayCollection(["Flex 1","Flex 2","Flex 3"]);
+				var myButtonBar : ButtonBar = new ButtonBar();
+				myButtonBar.dataProvider = dp;
+				myButtonBar.addEventListener(ItemClickEvent.ITEM_CLICK, doSomething);
+				this.addChild(myButtonBar);
+			}
+
+			public function doSomething(event : ItemClickEvent) : void {
+				Alert.show("You have clicked the button labeled " + event.label);
+			}
+		]]>
+	</mx:Script>
+</mx:Application>

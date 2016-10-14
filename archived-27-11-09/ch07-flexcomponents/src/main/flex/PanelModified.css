@@ -1,0 +1,7 @@
+
+Panel
+{
+	borderSkin: Embed(skinClass="Panel_borderSkin");
+	closeButtonSkin: Embed(skinClass="Panel_closeButtonSkin");
+	controlBarBackgroundSkin: Embed(skinClass="Panel_controlBarBackgroundSkin");
+}

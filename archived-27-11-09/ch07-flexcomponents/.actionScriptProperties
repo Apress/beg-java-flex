@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionScriptProperties mainApplicationPath="AsUIContainers.mxml" version="3">
+<compiler additionalCompilerArguments="-locale en_US" copyDependentFiles="true" enableModuleDebug="true" generateAccessible="false" htmlExpressInstall="true" htmlGenerate="true" htmlHistoryManagement="true" htmlPlayerVersion="9.0.124" htmlPlayerVersionCheck="true" outputFolderPath="bin-debug" sourceFolderPath="src/main/flex" strict="true" useApolloConfig="false" verifyDigests="true" warn="true">
+<compilerSourcePath>
+<compilerSourcePathEntry kind="1" linkType="1" path="src/main/resources"/>
+</compilerSourcePath>
+<libraryPath defaultLinkType="1">
+<libraryPathEntry kind="4" path=""/>
+<libraryPathEntry kind="1" linkType="1" path="libs"/>
+<libraryPathEntry autoExtract="true" kind="3" linkType="3" path="libs/PanelModified.swc" rslUrl="PanelModified.swf" useDefaultLinkType="false"/>
+</libraryPath>
+<sourceAttachmentPath/>
+</compiler>
+<applications>
+<application path="DataBindingTest2.mxml"/>
+<application path="AsColorPickerTest.mxml"/>
+<application path="ButtonTest.mxml"/>
+<application path="DataBindingTest.mxml"/>
+<application path="ColorPickerTest.mxml"/>
+<application path="AsButtonTest.mxml"/>
+<application path="CustomEventTest.mxml"/>
+<application path="MxmlUIContainersUsingCss.mxml"/>
+<application path="ButtonBarTest.mxml"/>
+<application path="DataBindingTest1.mxml"/>
+<application path="MxmlUIContainers.mxml"/>
+<application path="AsButtonBarTest.mxml"/>
+<application path="CheckBoxTest.mxml"/>
+<application path="AsCheckBoxTest.mxml"/>
+<application path="EventButton.mxml"/>
+<application path="AlertTest.mxml"/>
+<application path="AsUIContainers.mxml"/>
+<application path="DataBindingTest3.mxml"/>
+<application path="CustomComponentTest.mxml"/>
+<application path="AsComponentTest.mxml"/>
+<application path="PanelSkinnedFromFlash.mxml"/>
+<application path="AsSimpleComponentTest.mxml"/>
+</applications>
+<modules/>
+<buildCSSFiles/>
+</actionScriptProperties>

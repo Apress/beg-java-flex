@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+	<mx:Button id="count" label="count" click="{countValue++}" />
+	<mx:TextInput id="counter" text="{countValue}" editable="false" />
+	<mx:Script>
+		<![CDATA[
+			[Bindable]
+			private var countValue : uint = 0;
+		]]>
+	</mx:Script>
+</mx:Application>

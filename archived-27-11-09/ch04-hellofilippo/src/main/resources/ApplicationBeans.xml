@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+						http://www.springframework.org/schema/context
+						http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+
+						>
+	<bean id="message" class="com.apress.flexjava.hellofilippo.Message" >
+		<property name="text" value="How are you?" />
+	</bean>
+	<bean id="helloFilippo" class="com.apress.flexjava.hellofilippo.HelloFilippo">
+		<property name="message" ref="message" />
+	</bean>
+	<bean id="helloFilippoForConstructorInjection" class="com.apress.flexjava.hellofilippo.HelloFilippoForConstructorInjection">
+		<constructor-arg ref="message" />
+	</bean>
+	<bean id="helloFilippoForAmbiguityConstructor" class="com.apress.flexjava.hellofilippo.HelloFilippoForAmbiguityConstructor">
+		<constructor-arg ref="message" type="com.apress.flexjava.hellofilippo.Message" />
+	</bean>
+	<bean id="helloFilippoForAmbiguityConstructor2" class="com.apress.flexjava.hellofilippo.HelloFilippoForAmbiguityConstructor">
+		<constructor-arg value="Nice to meet you." type="java.lang.String" />
+	</bean>
+	<bean id="helloFilippoForBothSetterAndConstructiorInjection" class="com.apress.flexjava.hellofilippo.HelloFilippoForBothSetterAndConstructiorInjection">
+		<constructor-arg value="Chris"  />
+		<property name="message" ref="message" />
+	</bean>
+	<bean id="helloFilippoForInnerBean" class="com.apress.flexjava.hellofilippo.HelloFilippo">
+		<property name="message">
+			<bean id="messageInnerBean" class="com.apress.flexjava.hellofilippo.Message" >
+				<property name="text" value="I'm an inner bean." />
+			</bean>
+		</property>
+	</bean>
+	<bean id="helloFilippoForCollectionInjection" class="com.apress.flexjava.hellofilippo.HelloFilippoForCollectionInjection">
+		<property name="messages">
+			<list>
+				<value>How are you?</value>
+				<value>Fine and you?</value>
+				<value>Not so bad.</value>
+				<value>Good.</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="helloFilippoForCollectionMapInjection" class="com.apress.flexjava.hellofilippo.HelloFilippoForCollectionMapInjection">
+		<property name="messages">
+			<map>
+				<entry>
+					<key>
+						<value>Chris</value>
+					</key>
+					<value>How are you?</value>
+				</entry>
+				<entry>
+					<key>
+						<value>Filippo</value>
+					</key>
+					<value>Fine thank you.</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	<bean id="helloFilippoForCollectionPropertiesInjection" class="com.apress.flexjava.hellofilippo.HelloFilippoForCollectionPropertiesInjection">
+		<property name="messages">
+			<props>
+				<prop key="Chris">How are you?</prop>
+				<prop key="Filippo">Fine thank you.</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="helloFilippoForAutowired" class="com.apress.flexjava.hellofilippo.HelloFilippoForAutowired" />
+
+	<bean id="messageForResourceBean" class="com.apress.flexjava.hellofilippo.Message" >
+		<property name="text" value="Annotations are fantastic!" />
+	</bean>
+
+	<bean id="helloFilippoForResource" class="com.apress.flexjava.hellofilippo.HelloFilippoForResource" />
+	<bean id="helloFilippoForInitMethod" class="com.apress.flexjava.hellofilippo.HelloFilippoForInitMethod" init-method="setHardCodedMessage" />
+	<bean id="helloFilippoForPreConstruct" class="com.apress.flexjava.hellofilippo.HelloFilippoForPreConstruct" />
+
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:messages.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="messageForPropertiesBean" class="com.apress.flexjava.hellofilippo.Message" >
+		<property name="text" value="${message.guest}${message.filippo}" />
+	</bean>
+
+	<bean id="helloFilippoForProperties" class="com.apress.flexjava.hellofilippo.HelloFilippoForProperties" />
+
+
+	<context:annotation-config />
+</beans>

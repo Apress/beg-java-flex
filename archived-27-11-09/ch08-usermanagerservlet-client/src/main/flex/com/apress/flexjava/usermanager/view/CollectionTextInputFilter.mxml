@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TextInput xmlns:mx="http://www.adobe.com/2006/mxml" change="search()">
+	<mx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+
+			[Inspectable]
+			public var collection : ArrayCollection;
+
+			[Inspectable]
+			public var columnSearchable : String;
+
+            protected function search():void {
+                if(this.text !='') {
+                    filter()
+                } else {
+                    filterReset()
+                }
+            }
+
+             private function filter():void {
+                collection.filterFunction = filterRecords;
+                collection.refresh();
+            }
+
+            private function filterReset():void {
+                collection.filterFunction = null;
+                collection.refresh();
+            }
+
+            private function filterRecords(item:Object):Boolean {
+                var tags : String = item[columnSearchable];
+                if( tags != null ) {
+                        return tags.match(new RegExp(this.text, "i"));
+                } else {
+                        return false;
+                }
+            }
+
+		]]>
+	</mx:Script>
+</mx:TextInput>

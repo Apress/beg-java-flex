@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute">
+	<mx:HBox  id="hBoxRed"
+			  borderThickness="5"
+			  borderStyle="solid"
+			  borderColor="#F60E0E"
+			  width="90%"
+			  height="90%"
+			  horizontalCenter="0"
+			  verticalCenter="0"
+			  horizontalAlign="center"
+			  verticalAlign="middle"
+			  paddingLeft="10"
+			  paddingRight="10"
+			  paddingBottom="10"
+			  paddingTop="10">
+			  <mx:Box id="boxYellow"
+			  		  borderThickness="5"
+					  borderStyle="solid"
+					  borderColor="#F6EE0E"
+					  width="40%"
+					  height="100%">
+
+			  </mx:Box>
+			  <mx:VBox id="vBoxBlue"
+			  		   borderThickness="5"
+					   borderStyle="solid"
+					   borderColor="#0E14F6"
+					   width="100%"
+					   height="100%"
+					   horizontalAlign="center"
+					   verticalAlign="middle"
+					   paddingLeft="10"
+					   paddingRight="10"
+					   paddingBottom="10"
+					   paddingTop="10">
+			  	 <mx:Box id="boxLightBlue"
+			  	 		 borderColor="#05DBEE"
+			  	 		 borderStyle="solid"
+			  	 		 borderThickness="5"
+			  	 		 width="100%"
+			  	 		 height="50%">
+
+			  	 </mx:Box>
+			  	<mx:Box id="boxGreen"
+			  			borderColor="#05EEA4"
+			  			borderStyle="solid"
+			  			borderThickness="5"
+			  			width="100%"
+			  			height="50%">
+
+			  	 </mx:Box>
+			  </mx:VBox>
+
+	</mx:HBox>
+</mx:Application>

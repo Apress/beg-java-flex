@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				layout="absolute"
+				creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			import mx.containers.Box;
+			import mx.containers.VBox;
+			import mx.containers.HBox;
+
+			public function init() : void {
+
+				//create an horizontal main container
+				var hBoxRed : HBox = new HBox();
+				hBoxRed.percentWidth=100;
+				hBoxRed.percentHeight=100;
+				//set the style for the main container
+			  	hBoxRed.setStyle("borderThickness",5);
+			  	hBoxRed.setStyle("borderStyle","solid");
+			  	hBoxRed.setStyle("borderColor","#F60E0E");
+			  	hBoxRed.setStyle("horizontalCenter",0);
+			  	hBoxRed.setStyle("verticalCenter",0);
+			  	hBoxRed.setStyle("paddingLeft",10);
+			  	hBoxRed.setStyle("paddingRight",10);
+			  	hBoxRed.setStyle("paddingBottom",10);
+			  	hBoxRed.setStyle("paddingTop",10);
+			  	//add the main container to the stage
+				this.addChild(hBoxRed);
+
+				//create the first child of the main container
+			  	var boxYellow : Box = new Box();
+			  	boxYellow.percentWidth = 40;
+			  	boxYellow.percentHeight = 100;
+			  	boxYellow.setStyle("borderThickness",5);
+			  	boxYellow.setStyle("borderStyle","solid");
+			  	boxYellow.setStyle("borderColor","#F6EE0E");
+			  	//add the first child to the main container
+			  	hBoxRed.addChild(boxYellow);
+
+				//create the second child of the the main container that will contain other 2 boxes
+			  	var vBoxBlue : VBox = new VBox();
+				vBoxBlue.percentWidth=100;
+				vBoxBlue.percentHeight=100;
+				//set the style for the container
+			  	vBoxBlue.setStyle("borderThickness",5);
+			  	vBoxBlue.setStyle("borderStyle","solid");
+			  	vBoxBlue.setStyle("borderColor","#0E14F6");
+			  	vBoxBlue.setStyle("horizontalAlign","center");
+			  	vBoxBlue.setStyle("verticalAlign","middle");
+			  	vBoxBlue.setStyle("paddingLeft",10);
+			  	vBoxBlue.setStyle("paddingRight",10);
+			  	vBoxBlue.setStyle("paddingBottom",10);
+			  	vBoxBlue.setStyle("paddingTop",10);
+			  	//add the second child to the main container
+			  	hBoxRed.addChild(vBoxBlue);
+
+				//create the first child of the BoxBlue
+			  	var boxLightBlue : Box = new Box();
+			  	boxLightBlue.percentWidth = 100;
+			  	boxLightBlue.percentHeight = 50;
+			  	boxLightBlue.setStyle("borderThickness",5);
+			  	boxLightBlue.setStyle("borderStyle","solid");
+			  	boxLightBlue.setStyle("borderColor","#05DBEE");
+			  	//add the first chidl to the BoxBlue
+			  	vBoxBlue.addChild(boxLightBlue);
+
+				//create the second child of the BoxBlue
+			  	var boxGreen : Box = new Box();
+			  	boxGreen.percentWidth = 100;
+			  	boxGreen.percentHeight = 50;
+			  	boxGreen.setStyle("borderThickness",5);
+			  	boxGreen.setStyle("borderStyle","solid");
+			  	boxGreen.setStyle("borderColor","#05EEA4");
+			  	//add the second child of the BoxBlue
+			  	vBoxBlue.addChild(boxGreen);
+
+			}
+		]]>
+	</mx:Script>
+</mx:Application>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Form xmlns:mx="http://www.adobe.com/2006/mxml" width="100%" height="100%" creationComplete="{user = new User()}">
+	<mx:FormItem label="Common name">
+		<mx:TextInput id="commonName" text="{user.commonName}" change="{user.commonName = commonName.text}"/>
+	</mx:FormItem>
+	<mx:FormItem label="Last name">
+		<mx:TextInput id="lastName" text="{user.lastName}" change="{user.lastName = lastName.text}" />
+	</mx:FormItem>
+	<mx:FormItem label="Email">
+		<mx:TextInput id="email" text="{user.email}" change="{user.email = email.text}"/>
+	</mx:FormItem>
+	<mx:FormItem label="Username">
+		<mx:TextInput id="username" text="{user.username}" change="{user.username = username.text}"/>
+	</mx:FormItem>
+	<mx:FormItem label="Password">
+		<mx:TextInput id="password" text="{user.password}" change="{user.password = password.text}"/>
+	</mx:FormItem>
+	<mx:Script>
+		<![CDATA[
+			import com.apress.flexandjava.usermanager.model.User;
+
+			[Bindable]
+			[Inspectable]
+			public var user : User;
+		]]>
+	</mx:Script>
+
+</mx:Form>

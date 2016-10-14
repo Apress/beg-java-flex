@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				layout="vertical"
+				creationComplete="init()">
+	<mx:Script>
+		<![CDATA[
+			import mx.controls.CheckBox;
+			import mx.controls.Alert;
+
+			public function init() : void {
+				var myCheckBox : CheckBox = new CheckBox();
+				myCheckBox.label="Do you like Flex?";
+				myCheckBox.addEventListener(Event.CHANGE, doSomething);
+				this.addChild(myCheckBox);
+			}
+
+			public function doSomething(event : Event) : void {
+				Alert.show("Your answer is " + event.target.selected );
+			}
+		]]>
+	</mx:Script>
+</mx:Application>

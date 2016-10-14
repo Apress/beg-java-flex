@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" layout="vertical">
+	<mx:Binding source="count.value.toString()" destination="counter.text" />
+	<mx:NumericStepper id="count" />
+	<mx:TextInput id="counter"  editable="false" />
+</mx:Application>

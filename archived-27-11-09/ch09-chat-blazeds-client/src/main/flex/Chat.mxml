@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				layout="horizontal"
+				creationComplete="init()"
+				horizontalAlign="center"
+				verticalAlign="middle">
+
+		<mx:VBox width="100%" height="100%">
+			<mx:TextArea id="messagesBoard" width="100%" height="80%"/>
+			<mx:TextInput id="messageInput" width="100%" height="100" enter="send()" />
+		</mx:VBox>
+
+
+	<mx:Script>
+		<![CDATA[
+			import mx.messaging.Consumer;
+			import mx.messaging.ChannelSet;
+			import mx.messaging.Producer;
+			import mx.messaging.events.MessageAckEvent;
+			import mx.messaging.events.MessageEvent;
+			import mx.messaging.channels.AMFChannel;
+			import mx.utils.ArrayUtil;
+			import mx.collections.ArrayCollection;
+			import mx.messaging.messages.AsyncMessage;
+			import mx.messaging.messages.IMessage;
+
+			private const USERNAME : String = "filippo";
+
+			private var producer : Producer;
+
+			private var consumer : Consumer;
+
+
+			private function init():void{
+
+				var channelSet : ChannelSet = new ChannelSet();
+				var amfChannel : AMFChannel = new AMFChannel();
+				amfChannel.url="http://localhost:8080/chat/messagebroker/amfpolling";
+				channelSet.addChannel(amfChannel);
+
+				producer = new Producer();
+				producer.destination="chat-application";
+				producer.channelSet = channelSet;
+
+				consumer = new Consumer();
+				consumer.destination="chat-application";
+				consumer.channelSet=channelSet;
+				consumer.addEventListener(MessageEvent.MESSAGE,messageHandler);
+				consumer.subscribe();
+			}
+
+			private function send():void{
+				var message:IMessage = new AsyncMessage();
+				message.headers = new Array();
+				message.headers["sender"] = USERNAME;
+				message.headers["recepient"] = USERNAME;
+				message.body.userId = USERNAME;
+				message.body.chatMessage = messageInput.text;
+				producer.send(message);
+				messageInput.text = "";
+			}
+
+			private function messageHandler(event:MessageEvent):void {
+				var message : IMessage = IMessage(event.message);
+				if(message.headers["recepient"] == USERNAME){
+						if(message.body.chatMessage != ""){
+							messagesBoard.htmlText += message.body.userId + ": " + message.body.chatMessage + "\n";
+						}
+				}
+			}
+
+		]]>
+	</mx:Script>
+
+</mx:Application>

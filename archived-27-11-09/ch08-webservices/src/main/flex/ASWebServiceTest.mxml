@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml"
+				layout="horizontal"
+				verticalAlign="middle"
+				horizontalAlign="center"
+				creationComplete="init()">
+
+	<mx:Label text="My IP is:" />
+	<mx:Label text="{ip}" />
+
+	<mx:Script>
+		<![CDATA[
+			import net.webservicex.GetGeoIPContextResultEvent;
+			import net.webservicex.GeoIP;
+			import net.webservicex.GeoIPService;
+
+			[Bindable]
+			private var ip : String;
+
+   			public function init() : void{
+
+   				var myService:GeoIPService= new GeoIPService();
+  				myService.addgetGeoIPContextEventListener(myResultHandlingFunction);
+  				myService.getGeoIPContext();
+
+   			}
+
+   			public function myResultHandlingFunction(event:GetGeoIPContextResultEvent):void{
+   				ip = event.result.IP;
+   			}
+
+		]]>
+	</mx:Script>
+
+
+</mx:Application>
